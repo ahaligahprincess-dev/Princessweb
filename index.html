@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My First Web Page</title>
+
+  <!-- Requirement 1: Linked external CSS file -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Semantic Element 1: header -->
-  <header>
+  <!-- Element 1: Box Model + ID Selector (#main-header) -->
+  <header id="main-header">
     <h1>Welcome to My Personal Page</h1>
-    <!-- Semantic Element 2: nav -->
     <nav>
       <ul>
         <li><a href="#about">About Me</a></li>
@@ -20,17 +22,15 @@
     </nav>
   </header>
 
-  <!-- Semantic Element 3: main -->
   <main>
-    
-    <!-- Semantic Element 4: section -->
-    <section id="about">
+    <!-- Element 2: Box Model + Class Selector (.content-card) -->
+    <section id="about" class="content-card">
       <h2>About Me</h2>
-      <!-- Semantic Element 5: p -->
       <p>Hello! I am building this webpage to share a bit about myself, my goals, and topics that inspire me.</p>
     </section>
 
-    <section id="interests">
+    <!-- Element 3: Box Model + Class Selector (.content-card) -->
+    <section id="interests" class="content-card">
       <h2>My Interests</h2>
       <p>Here are a few things I enjoy doing in my free time:</p>
       <ul>
@@ -40,18 +40,15 @@
       </ul>
     </section>
 
-    <section id="travel">
+    <!-- Element 4: Box Model + Class Selector (.content-card) -->
+    <section id="travel" class="content-card">
       <h2>Travel Destinations</h2>
       <h3>A Place I'd Love to Visit</h3>
       <p>I enjoy visiting historical towns with beautiful architecture, modern lighting, and scenic winter landscapes.</p>
-      
-      <!-- Image requirement with descriptive alt attribute -->
-      <img src="image.jpg" alt="Illuminated historical stone arch bridge spanning a river at dusk with a illuminated church and snow-covered hills in the background">
+      <img src="image.jpg" alt="Illuminated historical stone arch bridge spanning a river at dusk with an illuminated church and snow-covered hills in the background">
     </section>
-
   </main>
 
-  <!-- Semantic Element 6: footer -->
   <footer>
     <p>&copy; 2026 Princess Ahaligah. All rights reserved.</p>
   </footer>

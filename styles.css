@@ -1,0 +1,44 @@
+/* Color Scheme: Deep Teal (#0f766e) & Coral Accent (#f97316) */
+
+/* 1. Type Selector — Global Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 24px;
+  line-height: 1.6;
+}
+
+/* 2. ID Selector — Box Model Element 1 */
+#main-header {
+  background-color: #0f766e; /* Deep Teal background */
+  color: #ffffff;
+  padding: 24px;              /* Internal spacing */
+  margin-bottom: 24px;        /* External spacing */
+  border: 4px solid #f97316;  /* Coral Accent border */
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* 3. Class Selector — Box Model Element 2 */
+.content-card {
+  background-color: #ffffff;
+  padding: 20px 24px;         /* Internal spacing */
+  margin: 16px 0;             /* External spacing */
+  border-left: 6px solid #0f766e; /* Accent left border */
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Class Selector — Box Model Element 3 */
+.highlight-badge {
+  display: inline-block;
+  background-color: #f97316; /* Coral background */
+  color: #ffffff;
+  padding: 8px 16px;          /* Internal spacing */
+  margin-top: 12px;           /* External spacing */
+  border: 2px solid #0f766e;  /* Deep Teal border */
+  border-radius: 4px;
+  font-weight: bold;
+}
