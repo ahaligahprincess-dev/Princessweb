@@ -1,44 +1,181 @@
-/* Color Scheme: Deep Teal (#0f766e) & Coral Accent (#f97316) */
+/* ==========================================================================
+   1. GLOBAL STYLING & DESIGN SYSTEM
+   ========================================================================== */
 
-/* 1. Type Selector — Global Page Styling */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
+/* Google Font Import: Playfair Display (Headings) & Inter (Body) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+/* Color Palette & Spacing Variables (8px System) */
+:root {
+  /* Colors */
+  --color-primary: #0F172A;       /* Deep Navy */
+  --color-secondary: #2DD4BF;     /* Teal Accent */
+  --color-bg: #F8F3E8;            /* Warm Cream Background */
+  --color-surface: #FFFFFF;       /* Card & Container Background */
+  --color-text: #334155;          /* Charcoal Body Text */
+  --color-border: #E2E8F0;        /* Subtle Border Line */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing Scale (Multiples of 8px) */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+}
+
+/* Global Reset & Base Rules */
+* {
+  box-sizing: border-box;
   margin: 0;
-  padding: 24px;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
+  padding: var(--space-16);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Prevents horizontal scrolling at small viewports */
 }
 
-/* 2. ID Selector — Box Model Element 1 */
-#main-header {
-  background-color: #0f766e; /* Deep Teal background */
-  color: #ffffff;
-  padding: 24px;              /* Internal spacing */
-  margin-bottom: 24px;        /* External spacing */
-  border: 4px solid #f97316;  /* Coral Accent border */
-  border-radius: 8px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- Selector Type 1: Element / Type Selectors --- */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: var(--space-16);
+}
+
+p {
+  margin-bottom: var(--space-16);
+}
+
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: auto;
   text-align: center;
+  padding: var(--space-24);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
 }
 
-/* 3. Class Selector — Box Model Element 2 */
-.content-card {
-  background-color: #ffffff;
-  padding: 20px 24px;         /* Internal spacing */
-  margin: 16px 0;             /* External spacing */
-  border-left: 6px solid #0f766e; /* Accent left border */
-  border-radius: 6px;
+/* --- Selector Type 2: ID Selector --- */
+#main-header {
+  background-color: var(--color-surface);
+  padding: var(--space-24);
+  margin-bottom: var(--space-32);
+  border-radius: var(--space-8);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
 }
 
-/* Class Selector — Box Model Element 3 */
-.highlight-badge {
-  display: inline-block;
-  background-color: #f97316; /* Coral background */
+/* --- Selector Type 3: Class Selectors --- */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--space-16);
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-weight: 600;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--space-8);
+  background-color: var(--color-bg);
+}
+
+.nav-links a:hover {
+  background-color: var(--color-primary);
   color: #ffffff;
-  padding: 8px 16px;          /* Internal spacing */
-  margin-top: 12px;           /* External spacing */
-  border: 2px solid #0f766e;  /* Deep Teal border */
-  border-radius: 4px;
-  font-weight: bold;
+  text-decoration: none;
+}
+
+.card {
+  background-color: var(--color-surface);
+  padding: var(--space-24);
+  border-radius: var(--space-8);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================================================================
+   2. HOMEWORK 3 MULTI-COLUMN LAYOUT (CSS GRID)
+   ========================================================================== */
+
+/* Mobile-First Base (320px): Single-column stacked grid */
+.multi-column-section,
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+  margin-top: var(--space-24);
+  margin-bottom: var(--space-32);
+}
+
+
+/* ==========================================================================
+   3. RESPONSIVENESS & MEDIA QUERIES
+   ========================================================================== */
+
+/* --- Media Query 1: Tablet Breakpoint (768px) --- */
+@media (min-width: 768px) {
+  body {
+    padding: var(--space-32);
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* 2-Column Layout for Tablet */
+  .multi-column-section,
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Media Query 2: Desktop Breakpoint (1200px) --- */
+@media (min-width: 1200px) {
+  /* 3-Column Layout for Desktop */
+  .multi-column-section,
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-32);
+  }
+
+  #main-header {
+    padding: var(--space-32) var(--space-48);
+  }
 }
